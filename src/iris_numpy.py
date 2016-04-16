@@ -4,6 +4,10 @@
 # Created:     02/06/2015
 #-------------------------------------------------------------------------------
 
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 import time, numpy as np
 
 def inputFile(inputName):
@@ -101,7 +105,7 @@ class ErrorLayer:
 def main():
     start_time = time.clock()
     #input_file
-    fileName = "ChangedIris.csv"
+    fileName = "../data/ChangedIris.csv"
     foldSelect = 4
     nFoldCV = 5
     inputData, inputTarget = inputFile(fileName)

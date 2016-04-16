@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*
 
 #-------------------------------------------------------------------------------
-# Name:        Variable_Backpropagation
+# Name:        Backpropagation
 # Purpose:     Machine Learning and Image Recognition
-#
 # Author:      yuma
-#
 # Created:     11/08/2015
 #memo
-#リストやクラス型オブジェクトは代入時に参照私となることを利用して、前の層と後ろの層の入出力を手に入れて計算している。
-#学習が進まない。誤差2乗和の値を出力してみても、その値は減少していない。出力と教師信号を比較したとき、毎回違う結果になる
-#20150425 ファイルを読み込み、リストを取得する部分をmain文に追加
-
+#リストやクラス型オブジェクトは代入時に参照渡しとなることを利用して、前の層と後ろの層の入出力を手に入れて誤差を計算している。
 #n-分割交差検定
 #n分割した標本群をnパターンつくり、それぞれのパターンで検定して、計n回検定する
 #そうして得られたn回の結果を平均して1つの推定を得る
 #このプログラムでは、１つのパターンの検定を行うのみとする
 #-------------------------------------------------------------------------------
+
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
 import time, csv, math, random
 
@@ -168,7 +167,7 @@ class ErrorLayer:
 def main():
     start_time = time.clock()
     #input_file ファイルから読み込んだデータリストに関する値の入力
-    fileName = "iris.csv"#読み込むファイルの名前と拡張子
+    fileName = "../data/iris.csv"#読み込むファイルの名前と拡張子
     sortingObject = ["Iris-setosa",[1, 0, 0], "Iris-versicolor",[0, 1, 0], "Iris-virginica",[0, 0, 1]]   #csvで書き換える要素群
     foldSelect = 4  #n分割したリストの中から任意の1つをtestDataに使う。5=>1~4 (foldSelect < nFoldCV)
     nFoldCV = 5     #入力したcsvファイルをn分割して学習データと検定データにわける(ex)n=5=>training4,test1
